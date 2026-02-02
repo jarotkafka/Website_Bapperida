@@ -26,16 +26,16 @@
            Dokumen <i class="fas fa-chevron-down text-xs"></i>
           </button>
           <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
-            <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-100">
+            <a href="{{ route('dokumen-perencanaan') }}" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-100">
               Dokumen Perencanaan
             </a>
-            <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+            <a href="{{ route('dokumen-litbang') }}" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
               Dokumen Litbang
             </a>
           </div>
         </div>
 
-        <a href="#" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
+        <a href="{{ route('ppid') }}" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
          PPID
         </a>
         <a href="#" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
@@ -80,13 +80,13 @@
       <a href="{{ route('profile') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         Profil Bapperida
       </a>
-      <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
+      <a href="{{ route('dokumen-perencanaan') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         Dokumen Perencanaan
       </a>
-      <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
+      <a href="{{ route('dokumen-litbang') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         Dokumen Litbang
       </a>
-      <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
+      <a href="{{ route('ppid') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         PPID
       </a>
       <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">

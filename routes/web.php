@@ -27,3 +27,16 @@ Route::get('/galeri-kegiatan', function () {
 Route::get('/kontak', function () {
     return view('kontak');
 })->name('kontak');
+
+Route::get('/dokumen-perencanaan', function () {
+    return view('dokumen-perencanaan');
+})->name('dokumen-perencanaan');
+
+Route::get('/dokumen-litbang', function () {
+    return view('dokumen-litbang');
+})->name('dokumen-litbang');
+
+Route::get('/ppid', function () {
+    return view('ppid');
+})->name('ppid');
+
