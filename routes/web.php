@@ -18,7 +18,17 @@ Route::get('/pejabat', function () {
     return view('pejabat');
 })->name('pejabat');
 
+Route::get('/permohonan-keberatan', function () {
+    return view('permohonan-keberatan');
+})->name('permohonan-keberatan');
 
+Route::get('/permohonan-informasi', function () {
+    return view('permohonan-informasi');
+})->name('permohonan-informasi');
+
+Route::get('/agenda', function () {
+    return view('agenda');
+})->name('agenda');
 
 Route::get('/galeri-kegiatan', function () {
     return view('galeri-kegiatan');
