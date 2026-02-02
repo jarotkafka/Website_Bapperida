@@ -6,7 +6,7 @@
   <title>Kontak - BAPPERIDA Kota Bogor</title>
   @vite(['resources/css/app.css','resources/js/app.js'])
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <!-- Navigation Bar -->
@@ -72,20 +72,20 @@
         <!-- LEFT COLUMN - MAP & INFO -->
         <div class="lg:col-span-2 space-y-8">
 
-            <!-- Map -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-                <div class="h-72 relative">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.409486193128!2d106.79020899999999!3d-6.5961648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5b7191348cb%3A0xa9a193fe3cb7234d!2sBogor%20City%20Government%20BAPPEDA!5e0!3m2!1sen!2sid!4v1734577200000!5m2!1sen!2sid"
-                        width="100%"
-                        height="100%"
-                        frameborder="0"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
+           <!-- Map -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+    <div class="h-72 relative">
+        <iframe
+            src="https://www.google.com/maps?q=Bapperida+Kota+Bogor&hl=id&output=embed"
+            class="w-full h-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+
 
             <!-- Contact Info Cards -->
             <div class="space-y-4">
@@ -278,31 +278,74 @@
 <!-- SOCIAL MEDIA SECTION -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
     <div class="bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl shadow-xl p-8 lg:p-12 text-center">
+
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-4">Ikuti Kami di Media Sosial</h2>
-            <p class="text-lg text-blue-100 mb-8">Tetap terhubung dengan perkembangan terkini dari BAPPERIDA Kota Bogor</p>
+
+            <h2 class="text-3xl font-bold text-white mb-4">
+                Ikuti Kami di Media Sosial
+            </h2>
+
+            <p class="text-lg text-blue-100 mb-8">
+                Tetap terhubung dengan perkembangan terkini dari BAPPERIDA Kota Bogor
+            </p>
+
 
             <div class="flex justify-center gap-6">
-                <a href="https://www.instagram.com/bapperida.kotabogor" target="_blank"
-                   class="w-14 h-14 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-all duration-300">
-                    <i class="fab fa-instagram"></i>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/bapperida.kotabogor"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="w-14 h-14 bg-white/20 hover:bg-pink-500 backdrop-blur-sm rounded-full
+                          flex items-center justify-center text-white text-xl
+                          hover:scale-110 transition-all duration-300">
+
+                    <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="#"
-                   class="w-14 h-14 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-all duration-300">
-                    <i class="fab fa-facebook-f"></i>
+
+
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@bapperida.kotabogor"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="w-14 h-14 bg-white/20 hover:bg-gray-900 backdrop-blur-sm rounded-full
+                          flex items-center justify-center text-white text-xl
+                          hover:scale-110 transition-all duration-300">
+
+                    <i class="fa-brands fa-tiktok"></i>
                 </a>
-                <a href="#"
-                   class="w-14 h-14 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-all duration-300">
-                    <i class="fab fa-twitter"></i>
+
+
+                <!-- X / Twitter -->
+                <a href="https://x.com/bappeda3271"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="w-14 h-14 bg-white/20 hover:bg-black backdrop-blur-sm rounded-full
+                          flex items-center justify-center text-white text-xl
+                          hover:scale-110 transition-all duration-300">
+
+                    <i class="fa-brands fa-x-twitter"></i>
                 </a>
-                <a href="#"
-                   class="w-14 h-14 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-all duration-300">
-                    <i class="fab fa-youtube"></i>
+
+
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@bapperidakotabogor"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="w-14 h-14 bg-white/20 hover:bg-red-600 backdrop-blur-sm rounded-full
+                          flex items-center justify-center text-white text-xl
+                          hover:scale-110 transition-all duration-300">
+
+                    <i class="fa-brands fa-youtube"></i>
                 </a>
+
             </div>
+
         </div>
+
     </div>
 </section>
+
 
   <!-- Footer -->
     @include('layouts.footer')

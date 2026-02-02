@@ -7,7 +7,7 @@
     <title>Galeri Kegiatan - BAPPERIDA Kota Bogor</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         .card-hover {
             transition: all 0.3s ease;
@@ -61,6 +61,10 @@
             line-height: 1.4;
             margin-bottom: 0.5rem;
             color: #ffffff;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .date-overlay {
@@ -70,7 +74,7 @@
             color: #e0e0e0;
         }
 
-        /* Lightbox Styles */
+        /* ========== PERBAIKAN LIGHTBOX ========== */
         .lightbox {
             display: none;
             position: fixed;
@@ -78,11 +82,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             z-index: 9999;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .lightbox.active {
@@ -91,34 +95,51 @@
 
         .lightbox-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
+            width: 90%;
+            max-width: 1000px;
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+        }
+
+        .lightbox-image-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            min-height: 50vh;
+            max-height: 60vh;
+            overflow: hidden;
         }
 
         .lightbox-image {
             width: 100%;
             height: auto;
-            max-height: 70vh;
+            max-height: 100%;
             object-fit: contain;
             display: block;
         }
 
         .lightbox-info {
-            padding: 1.5rem;
+            padding: 1.5rem 2rem;
             background: white;
+            border-top: 1px solid #f0f0f0;
         }
 
         .lightbox-category {
             display: inline-block;
-            padding: 0.4rem 0.9rem;
-            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
             font-size: 0.875rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
         }
 
         .lightbox-title {
@@ -127,47 +148,51 @@
             color: #1f2937;
             margin-bottom: 0.75rem;
             line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .lightbox-date {
             display: flex;
             align-items: center;
             color: #6b7280;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .lightbox-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 40px;
-            height: 40px;
-            background: white;
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
             border: none;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #374151;
             transition: all 0.3s ease;
             z-index: 10000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .lightbox-close:hover {
-            background: #f3f4f6;
-            transform: rotate(90deg);
+            background: white;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
         .lightbox-nav {
-            position: absolute;
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: white;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -177,33 +202,37 @@
             font-size: 1.5rem;
             color: #374151;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
         }
 
         .lightbox-nav:hover {
-            background: #f3f4f6;
+            background: white;
             transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
         .lightbox-prev {
-            left: 1rem;
+            left: 2rem;
         }
 
         .lightbox-next {
-            right: 1rem;
+            right: 2rem;
         }
 
         .lightbox-counter {
-            position: absolute;
-            bottom: 1.5rem;
+            position: fixed;
+            bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
             font-weight: 600;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
         }
 
         .gallery-item {
@@ -255,6 +284,70 @@
             padding: 0 2px;
             border-radius: 2px;
         }
+
+        /* Responsive Lightbox */
+        @media (max-width: 768px) {
+            .lightbox-content {
+                width: 95%;
+                max-height: 85vh;
+            }
+
+            .lightbox-info {
+                padding: 1.25rem;
+            }
+
+            .lightbox-title {
+                font-size: 1.25rem;
+            }
+
+            .lightbox-close {
+                top: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .lightbox-prev {
+                left: 1rem;
+            }
+
+            .lightbox-next {
+                right: 1rem;
+            }
+
+            .lightbox-counter {
+                bottom: 1rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lightbox-content {
+                width: 98%;
+                border-radius: 12px;
+            }
+
+            .lightbox-info {
+                padding: 1rem;
+            }
+
+            .lightbox-title {
+                font-size: 1.1rem;
+            }
+
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+            }
+        }
     </style>
 </head>
 
@@ -264,7 +357,7 @@
 
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-gradient-to-r from-blue-900 to-blue-800">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00em0wIDI0YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00ek0xMiAxNmMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHptMCAyNGMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00em0wIDI0YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00Ek0xMiAxNmMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHptMCAyNGMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30"></div>
         <div class="relative z-10 container mx-auto px-4 py-24">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -588,9 +681,11 @@
         </button>
 
         <div class="lightbox-content">
-            <img id="lightboxImage" class="lightbox-image" src="" alt="">
+            <div class="lightbox-image-container">
+                <img id="lightboxImage" class="lightbox-image" src="" alt="">
+            </div>
             <div class="lightbox-info">
-                <span id="lightboxCategory" class="lightbox-category bg-blue-100 text-blue-700"></span>
+                <span id="lightboxCategory" class="lightbox-category"></span>
                 <h2 id="lightboxTitle" class="lightbox-title"></h2>
                 <div class="lightbox-date">
                     <i class="far fa-calendar-alt mr-2"></i>
@@ -600,7 +695,7 @@
         </div>
 
         <div class="lightbox-counter">
-            <span id="lightboxCounter">Image 1 of 9</span>
+            <span id="lightboxCounter">Gambar 1 dari 9</span>
         </div>
     </div>
 
@@ -705,10 +800,10 @@
             // Show/hide no results message
             if (visibleItems === 0) {
                 noResults.classList.add('active');
-                galleryGrid.style.display = 'none';
+                document.getElementById('galleryGrid').style.display = 'none';
             } else {
                 noResults.classList.remove('active');
-                galleryGrid.style.display = 'grid';
+                document.getElementById('galleryGrid').style.display = 'grid';
             }
         }
 
@@ -745,11 +840,25 @@
             updateLightbox();
             document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            // Prevent scrolling on background
+            document.addEventListener('wheel', preventScroll, { passive: false });
+            document.addEventListener('touchmove', preventScroll, { passive: false });
         }
 
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
             document.body.style.overflow = '';
+
+            // Re-enable scrolling
+            document.removeEventListener('wheel', preventScroll);
+            document.removeEventListener('touchmove', preventScroll);
+        }
+
+        function preventScroll(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
         }
 
         function navigateLightbox(direction) {
@@ -772,10 +881,23 @@
             document.getElementById('lightboxDate').textContent = data.date;
             document.getElementById('lightboxCategory').textContent = data.category;
             document.getElementById('lightboxCounter').textContent = `Gambar ${currentImageIndex + 1} dari ${galleryData.length}`;
+
+            // Add fade in effect
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.style.opacity = '0';
+            setTimeout(() => {
+                lightboxImage.style.opacity = '1';
+                lightboxImage.style.transition = 'opacity 0.3s ease';
+            }, 50);
         }
 
         // Keyboard navigation for lightbox
         document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+
+            e.preventDefault();
+
             if (e.key === 'Escape') {
                 closeLightbox();
             } else if (e.key === 'ArrowLeft') {

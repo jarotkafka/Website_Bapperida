@@ -75,7 +75,7 @@
                     referrerpolicy="no-referrer-when-downgrade">
             </iframe>
             <div class="p-4">
-              <a href="https://maps.google.com/?q=Bapperida+Kota+Bogor"
+              <a href="https://maps.app.goo.gl/a46LDbvm817RoZ4C6"
                  target="_blank"
                  class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-medium">
                 <i class="fas fa-directions"></i>
@@ -89,22 +89,22 @@
       <!-- Social Media Links -->
       <div class="flex justify-center gap-6 mb-8">
         <a href="https://www.instagram.com/bapperida.kotabogor" target="_blank" class="bg-gray-800 p-3 rounded-full hover:bg-pink-600 transition-colors">
-          <i class="fab fa-instagram text-xl"></i>
+            <i class="fab fa-instagram text-xl"></i>
         </a>
-        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-blue-600 transition-colors">
-          <i class="fab fa-facebook-f text-xl"></i>
+        <a href="https://www.tiktok.com/@bapperida.kotabogor" class="bg-gray-800 p-3 rounded-full hover:bg-blue-600 transition-colors">
+            <i class="fab fa-tiktok text-xl"></i>
         </a>
-        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-blue-400 transition-colors">
-          <i class="fab fa-twitter text-xl"></i>
+        <a href="https://x.com/bappeda3271" class="bg-gray-800 p-3 rounded-full hover:bg-black transition-colors">
+            <i class="fa-brands fa-x-twitter text-xl"></i>
         </a>
-        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-red-600 transition-colors">
-          <i class="fab fa-youtube text-xl"></i>
+        <a href="https://www.youtube.com/@bapperidakotabogor" class="bg-gray-800 p-3 rounded-full hover:bg-red-600 transition-colors">
+            <i class="fab fa-youtube text-xl"></i>
         </a>
       </div>
 
       <!-- Copyright -->
       <div class="pt-8 border-t border-gray-800 text-center">
-        <p class="text-gray-400 text-sm">© 2024 BAPPERIDA Kota Bogor. Hak Cipta Dilindungi.</p>
+        <p class="text-gray-400 text-sm">© 2026 BAPPERIDA Kota Bogor. Hak Cipta Dilindungi.</p>
         <p class="text-gray-500 text-xs mt-2">Dibangun dengan semangat melayani masyarakat Bogor</p>
       </div>
     </div>

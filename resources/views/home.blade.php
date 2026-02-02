@@ -6,7 +6,7 @@
   <title>BAPPERIDA Kota Bogor - Perencanaan Pembangunan Riset Dan Inovasi Daerah</title>
   @vite(['resources/css/app.css','resources/js/app.js'])
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- Glide.js for carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
   <!-- Instagram Feed CSS -->
