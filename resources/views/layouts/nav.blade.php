@@ -38,7 +38,7 @@
         <a href="{{ route('ppid') }}" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
          PPID
         </a>
-        <a href="#" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
+        <a href="{{ route('agenda') }}" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
           Agenda
         </a>
         <a href="{{ route('galeri-kegiatan') }}" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200">
@@ -54,10 +54,10 @@
            Permohonan <i class="fas fa-chevron-down text-xs"></i>
           </button>
           <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
-            <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-100">
+            <a href="{{ route('permohonan-informasi') }}" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-100">
               Permohonan Informasi
             </a>
-            <a href="#" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+            <a href="{{ route('permohonan-keberatan') }}" class="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
               Permohonan Keberatan
             </a>
           </div>
@@ -89,7 +89,7 @@
       <a href="{{ route('ppid') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         PPID
       </a>
-      <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
+      <a href="{{ route('agenda') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         Agenda
       </a>
       <a href="{{ route('galeri-kegiatan') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
@@ -98,10 +98,10 @@
       <a href="{{ route('kontak') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         Kontak
       </a>
-      <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
+      <a href="{{ route('permohonan-informasi') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         Permohonan Informasi
       </a>
-      <a href="#" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
+      <a href="{{ route('permohonan-keberatan') }}" class="block py-3 px-4 text-gray-700 hover:bg-blue-50 rounded-lg">
         Permohonan Keberatan
       </a>
     </div>

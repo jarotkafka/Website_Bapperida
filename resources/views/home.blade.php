@@ -17,44 +17,89 @@
     @include('layouts.nav')
 
   <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gradient-to-r from-blue-900 to-blue-800">
-    <!-- Hero Background -->
-    <div class="absolute inset-0 z-0">
-      <div class="grid grid-cols-3 h-full">
-        @for ($i = 1; $i <= 3; $i++)
-          <div class="h-full">
-            <img src="{{ asset("image/tampilan$i.jpeg") }}" class="h-full w-full object-cover opacity-20" alt="Background {{ $i }}">
-          </div>
-        @endfor
+<section class="relative overflow-hidden min-h-screen bg-gradient-to-r from-blue-900 to-blue-800">
+
+  <!-- Hero Background -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="grid grid-cols-3 h-full">
+
+      @for ($i = 1; $i <= 3; $i++)
+        <div class="relative h-full overflow-hidden">
+
+          <img
+            src="{{ asset("image/tampilan$i.jpeg") }}"
+            class="absolute bottom-0 left-0 w-full h-full object-cover opacity-20"
+            alt="Background {{ $i }}"
+          >
+
+        </div>
+      @endfor
+
+    </div>
+  </div>
+
+
+  <!-- Overlay Gelap (Biar Teks Lebih Jelas) -->
+  <div class="absolute inset-0 bg-black/30 z-[1]"></div>
+
+
+  <!-- Hero Content -->
+  <div class="relative z-10 container mx-auto px-4 py-32 min-h-screen flex items-center">
+
+    <div class="max-w-4xl mx-auto text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
+        <span class="text-white text-sm font-medium">
+          Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah
+        </span>
       </div>
+
+
+      <!-- Title -->
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        BAPPERIDA KOTA BOGOR
+      </h1>
+
+
+      <!-- Description -->
+      <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+        Perencanaan Pembangunan, Riset dan Inovasi Daerah untuk mewujudkan
+        Kota Bogor yang maju, sejahtera, dan berkelanjutan.
+      </p>
+
+
+      <!-- Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+        <a href="#"
+          class="px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg
+                 hover:bg-blue-600 transition duration-200
+                 flex items-center justify-center gap-2">
+
+          <i class="fas fa-book-open"></i>
+          Dokumen Publik
+        </a>
+
+
+        <a href="#"
+          class="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg
+                 hover:bg-white/30 transition duration-200
+                 flex items-center justify-center gap-2
+                 border border-white/30">
+
+          <i class="fas fa-calendar-alt"></i>
+          Agenda Kegiatan
+        </a>
+
+      </div>
+
     </div>
 
-    <!-- Hero Content -->
-    <div class="relative z-10 container mx-auto px-4 py-32">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
-          <span class="text-white text-sm font-medium">Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah</span>
-        </div>
+  </div>
 
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-          BAPPERIDA KOTA BOGOR
-        </h1>
+</section>
 
-        <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
-          Perencanaan Pembangunan, Riset dan Inovasi Daerah untuk mewujudkan Kota Bogor yang maju, sejahtera, dan berkelanjutan.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#" class="px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center gap-2">
-            <i class="fas fa-book-open"></i> Dokumen Publik
-          </a>
-          <a href="#" class="px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/30 transition-colors duration-200 flex items-center justify-center gap-2 border border-white/30">
-            <i class="fas fa-calendar-alt"></i> Agenda Kegiatan
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Berita Section -->
   <section class="py-20 bg-gray-50">
@@ -568,35 +613,40 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        @php
-          // Generate sample agenda dates
-          $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-          $months = [
+
+       @php
+        $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        $months = [
             1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April',
             5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus',
             9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'
-          ];
+        ];
 
-          $agenda_dates = [];
-          for ($i = 0; $i < 3; $i++) {
-            $date = date('Y-m-d', strtotime("+{$i} days"));
-            $day_num = date('w', strtotime($date));
+        $agenda_dates = [];
+
+        for ($i = -2; $i <= 0; $i++) {
+            $date = date('Y-m-d', strtotime("{$i} days"));
+            $timestamp = strtotime($date);
+
+            $day_num = date('w', $timestamp);
             $day_name = $days[$day_num];
-            $month_num = date('n', strtotime($date));
+            $month_num = date('n', $timestamp);
             $month_name = $months[$month_num];
-            $day_date = date('j', strtotime($date));
-            $year = date('Y', strtotime($date));
+            $day_date = date('j', $timestamp);
+            $year = date('Y', $timestamp);
 
             $agenda_dates[] = [
-              'full_date' => "{$day_name}, {$day_date} {$month_name} {$year}",
-              'day_name' => $day_name,
-              'date_number' => $day_date,
-              'month_name' => $month_name,
-              'year' => $year,
-              'count' => rand(1, 5) // Random number of events for that day
+            'full_date' => "{$day_name}, {$day_date} {$month_name} {$year}",
+            'day_name' => $day_name,
+            'date_number' => $day_date,
+            'month_name' => $month_name,
+            'year' => $year,
+            'count' => rand(1, 5)
             ];
-          }
+        }
         @endphp
+
+
 
         @foreach($agenda_dates as $index => $agenda)
           <div class="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
